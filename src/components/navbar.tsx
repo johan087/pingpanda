@@ -1,6 +1,8 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./max-width-wrapper";
 import { SignOutButton } from "@clerk/nextjs";
+import { Button, buttonVariants } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 export const NavBar = () => {
   const user = false;
@@ -13,11 +15,55 @@ export const NavBar = () => {
             Ping<span className="text-blue-700">Panda</span>
           </Link>
           <div className="h-full flex tems-center space-x-4">
-            {user ? <>
-              <SignOutButton>
-                
-            </SignOutButton>
-            </> : null}
+            {user ? (
+              <>
+                <SignOutButton>
+                  <Button size="sm" variant="ghost">
+                    Sign out
+                  </Button>
+                </SignOutButton>
+                <Link
+                  href="/dasboard"
+                  className={buttonVariants({
+                    size: "sm",
+                    className: "flex items-center gap-1",
+                  })}
+                >
+                  Dashboard <ArrowRight className="ml-1.5 size-4" />
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/dasboard"
+                  className={buttonVariants({
+                    size: "sm",
+                    variant: "ghost",
+                  })}
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href="/sign-in"
+                  className={buttonVariants({
+                    size: "sm",
+                    className: "flex items-center gap-1.5",
+                  })}
+                >
+                  Sign in
+                </Link>
+                <div className="h-8 w-px bg-gray-200" />
+                <Link
+                  href="/sign-up"
+                  className={buttonVariants({
+                    size: "sm",
+                    className: "flex items-center gap-1.5",
+                  })}
+                >
+                  Sign up <ArrowRight className="ml-1.5 size-4" />
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </MaxWidthWrapper>
