@@ -38,7 +38,12 @@ const Page = () => {
               </div>
             ))}
           </ul>
-          <ShinyButton href="">Start For Free Today </ShinyButton>
+          <ShinyButton
+            href="/sign-up"
+            className="mt-12 relative z-10 h-14 w-full text-base shadow-lg hover:shadow-xl"
+          >
+            Start For Free Today{" "}
+          </ShinyButton>
         </MaxWidthWrapper>
       </section>
       <section></section>
