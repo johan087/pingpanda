@@ -1,8 +1,8 @@
+import { DiscordMessage } from "@/components/discord-message";
 import { Heading } from "@/components/heading";
 import MaxWidthWrapper from "@/components/max-width-wrapper";
 import { MockDiscordUI } from "@/components/mock-discord-ui";
 import { ShinyButton } from "@/components/shiny-button";
-import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list";
 import { Check } from "lucide-react";
 
 const Page = () => {
@@ -54,11 +54,19 @@ const Page = () => {
           <MaxWidthWrapper className="relative">
             <div className="-m-2 rounded-xl bg-gray-900/50 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:px-4">
               <MockDiscordUI>
-                <AnimatedList>
-                  <AnimatedListItem>example</AnimatedListItem>
-                  <AnimatedListItem>example2</AnimatedListItem>
-                  <AnimatedListItem>example3</AnimatedListItem>
-                </AnimatedList>
+                <DiscordMessage
+                  avatarSrc="/brand-asset-profile-picture.png"
+                  avatarAlt="PingPanda Avatar"
+                  timestamp="Today at 12:35pm"
+                  title="T New user signed up"
+                  username="PingPanda"
+                  content={{
+                    name: "Mateo Oritz",
+                    email: "m.ortiz19@gmail.com",
+                  }}
+                  badgeText="SignUp"
+                  badgeColor="#43b581"
+                ></DiscordMessage>
               </MockDiscordUI>
             </div>
           </MaxWidthWrapper>
