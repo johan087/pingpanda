@@ -21,7 +21,7 @@ import Image from "next/image";
 
 export const MockDiscordUI = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex min-h-250 w-full mx-w-[1200px] bg-black text-white rounded-lg overflow-hidden shadow-xl">
+    <div className="flex min-h-200 w-full mx-w-[1200px] bg-black text-white rounded-lg overflow-hidden shadow-xl">
       {/* server list */}
       <div className="hidden sm:flex w-18 bg-[#202225] py-3 flex-col  items-center">
         <div className="size-12 bg-blue-700 rounded-2xl flex items-center justify-center mb-2 hover:rounded-xl transition-all duratio-200">

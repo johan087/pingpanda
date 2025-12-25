@@ -60,7 +60,7 @@ const Page = () => {
                     avatarSrc="/brand-asset-profile-picture.png"
                     avatarAlt="PingPanda Avatar"
                     timestamp="Today at 12:35pm"
-                    title="T New user signed up"
+                    title="🧑‍🦱 New user signed up"
                     username="PingPanda"
                     content={{
                       name: "Mateo Oritz",
@@ -68,12 +68,12 @@ const Page = () => {
                     }}
                     badgeText="SignUp"
                     badgeColor="#43b581"
-                  ></DiscordMessage>
+                  />
                   <DiscordMessage
                     avatarSrc="/brand-asset-profile-picture.png"
                     avatarAlt="PingPanda Avatar"
                     timestamp="Today at 12:35pm"
-                    title="T Payment received"
+                    title="💰 Payment received"
                     username="PingPanda"
                     content={{
                       amount: "$49.00",
@@ -82,7 +82,20 @@ const Page = () => {
                     }}
                     badgeText="Revenue"
                     badgeColor="#faa61a"
-                  ></DiscordMessage>
+                  />
+                  <DiscordMessage
+                    avatarSrc="/brand-asset-profile-picture.png"
+                    avatarAlt="PingPanda Avatar"
+                    timestamp="Today at 05:35pm"
+                    title="🚀 Revenue Milestone Achieved"
+                    username="PingPanda"
+                    content={{
+                      recuringRevenue: "$5.000 USD",
+                      growth: "+8.2%",
+                    }}
+                    badgeText="Milestone"
+                    badgeColor="#5865f2"
+                  />
                 </AnimatedList>
               </MockDiscordUI>
             </div>
