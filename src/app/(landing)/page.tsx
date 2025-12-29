@@ -124,7 +124,7 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
-            <h2 className="text-center text-base/7 font-semibold text-brand-600">
+            <h2 className="text-center text-base/7 font-semibold text-blue-600">
               Intuitive Monitoring
             </h2>
             <Heading>Stay ahead with real-time insights</Heading>
@@ -274,7 +274,7 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-white">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
-            <h2 className="text-center text-base/7 font-semibold text-brand-600">
+            <h2 className="text-center text-base/7 font-semibold text-blue-600">
               Real-World Experiences
             </h2>
             <Heading className="text-center">What our customers say</Heading>
@@ -282,13 +282,13 @@ const Page = () => {
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
             {/* first customer review */}
-            <div className="flex flex-auto flex-col gap-4 bg-brand-25 p-6 sm:p-8 lg:p-16 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem]">
+            <div className="flex flex-auto flex-col gap-4 bg-white p-6 sm:p-8 lg:p-16 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem]">
               <div className="flex gap-0.5 mb-2 justify-center lg:justify-start">
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
@@ -318,11 +318,11 @@ const Page = () => {
             {/* second customer review */}
             <div className="flex flex-auto flex-col gap-4 bg-brand-25 p-6 sm:p-8 lg:p-16 rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem]">
               <div className="flex gap-0.5 mb-2 justify-center lg:justify-start">
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
-                <Star className="size-5 text-brand-600 fill-brand-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
+                <Star className="size-5 text-blue-600 fill-blue-600" />
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
@@ -358,8 +358,6 @@ const Page = () => {
           </ShinyButton>
         </MaxWidthWrapper>
       </section>
-
-      <section></section>
     </>
   );
 };
