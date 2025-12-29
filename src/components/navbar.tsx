@@ -1,11 +1,12 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./max-width-wrapper";
-import { SignOutButton } from "@clerk/nextjs";
+import { ClerkProvider, SignOutButton, UserButton } from "@clerk/nextjs";
 import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { currentUser } from "@clerk/nextjs/server";
 
-export const NavBar = () => {
-  const user = false;
+export const NavBar = async () => {
+  const user = await currentUser();
 
   return (
     <nav className="sticky z-100 h-16 inset-x-0 top-0 w-full border-b border-grsy-200 bg-white/80 backdrop-blur-lg transition-all">
@@ -64,6 +65,7 @@ export const NavBar = () => {
                 </Link>
               </>
             )}
+            <UserButton />
           </div>
         </div>
       </MaxWidthWrapper>
