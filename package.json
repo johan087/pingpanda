@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.3",
+    "@neondatabase/serverless": "^1.0.2",
+    "@prisma/adapter-neon": "^6.19.0",
     "@prisma/adapter-pg": "^6.19.0",
     "@prisma/client": "6.19.0",
     "@radix-ui/react-slot": "^1.2.4",
@@ -26,6 +28,7 @@
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-syntax-highlighter": "^16.1.0",
+    "superjson": "^2.2.6",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.2.1"
   },
