@@ -9,9 +9,8 @@ export const dynamic = "force-dynamic";
 export const authRouter = router({
   getDatabaseSyncStatus: publicProcedure.query(async ({ c }) => {
     console.log("Inside auth-router ....");
-
     const auth = await currentUser();
-    console.log(auth?.emailAddresses[0].emailAddress);
+    console.log("auth-email: ", auth?.emailAddresses[0].emailAddress);
 
     if (!auth) {
       return c.json({ isSynced: false });
