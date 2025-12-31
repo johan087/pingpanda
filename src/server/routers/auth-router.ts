@@ -8,18 +8,18 @@ export const dynamic = "force-dynamic";
 
 export const authRouter = router({
   getDatabaseSyncStatus: publicProcedure.query(async ({ c }) => {
-    console.log("Inside auth-router ....");
+    //console.log("Inside auth-router ....");
     const auth = await currentUser();
-    console.log("auth-email: ", auth?.emailAddresses[0].emailAddress);
+    //console.log("auth-email: ", auth?.emailAddresses[0].emailAddress);
 
     if (!auth) {
       return c.json({ isSynced: false });
     }
-    console.log("auth.id: ", auth.id);
+    //console.log("auth.id: ", auth.id);
     let user = null;
     try {
       user = await db.user.findFirst({ where: { externalId: auth.id } });
-      console.log("USER IN db:", user);
+      //console.log("USER IN db:", user);
 
       if (!user) {
         await db.user.create({
