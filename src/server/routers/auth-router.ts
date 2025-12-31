@@ -46,3 +46,4 @@ export const authRouter = router({
     return c.json({ isSynced: true });
   }),
 });
+//modified
