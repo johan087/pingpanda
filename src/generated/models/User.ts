@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from "@prisma/client/runtime/library"
+import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
@@ -27,17 +27,17 @@ export type AggregateUser = {
 }
 
 export type UserAvgAggregateOutputType = {
-  qutaoLimit: number | null
+  quotaLimit: number | null
 }
 
 export type UserSumAggregateOutputType = {
-  qutaoLimit: number | null
+  quotaLimit: number | null
 }
 
 export type UserMinAggregateOutputType = {
   id: string | null
   externalId: string | null
-  qutaoLimit: number | null
+  quotaLimit: number | null
   plan: $Enums.Plan | null
   email: string | null
   apiKey: string | null
@@ -49,7 +49,7 @@ export type UserMinAggregateOutputType = {
 export type UserMaxAggregateOutputType = {
   id: string | null
   externalId: string | null
-  qutaoLimit: number | null
+  quotaLimit: number | null
   plan: $Enums.Plan | null
   email: string | null
   apiKey: string | null
@@ -61,7 +61,7 @@ export type UserMaxAggregateOutputType = {
 export type UserCountAggregateOutputType = {
   id: number
   externalId: number
-  qutaoLimit: number
+  quotaLimit: number
   plan: number
   email: number
   apiKey: number
@@ -73,17 +73,17 @@ export type UserCountAggregateOutputType = {
 
 
 export type UserAvgAggregateInputType = {
-  qutaoLimit?: true
+  quotaLimit?: true
 }
 
 export type UserSumAggregateInputType = {
-  qutaoLimit?: true
+  quotaLimit?: true
 }
 
 export type UserMinAggregateInputType = {
   id?: true
   externalId?: true
-  qutaoLimit?: true
+  quotaLimit?: true
   plan?: true
   email?: true
   apiKey?: true
@@ -95,7 +95,7 @@ export type UserMinAggregateInputType = {
 export type UserMaxAggregateInputType = {
   id?: true
   externalId?: true
-  qutaoLimit?: true
+  quotaLimit?: true
   plan?: true
   email?: true
   apiKey?: true
@@ -107,7 +107,7 @@ export type UserMaxAggregateInputType = {
 export type UserCountAggregateInputType = {
   id?: true
   externalId?: true
-  qutaoLimit?: true
+  quotaLimit?: true
   plan?: true
   email?: true
   apiKey?: true
@@ -206,7 +206,7 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UserGroupByOutputType = {
   id: string
   externalId: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan: $Enums.Plan
   email: string
   apiKey: string
@@ -241,7 +241,7 @@ export type UserWhereInput = {
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
   externalId?: Prisma.StringNullableFilter<"User"> | string | null
-  qutaoLimit?: Prisma.IntFilter<"User"> | number
+  quotaLimit?: Prisma.IntFilter<"User"> | number
   plan?: Prisma.EnumPlanFilter<"User"> | $Enums.Plan
   email?: Prisma.StringFilter<"User"> | string
   apiKey?: Prisma.StringFilter<"User"> | string
@@ -256,7 +256,7 @@ export type UserWhereInput = {
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   externalId?: Prisma.SortOrderInput | Prisma.SortOrder
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   email?: Prisma.SortOrder
   apiKey?: Prisma.SortOrder
@@ -276,7 +276,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  qutaoLimit?: Prisma.IntFilter<"User"> | number
+  quotaLimit?: Prisma.IntFilter<"User"> | number
   plan?: Prisma.EnumPlanFilter<"User"> | $Enums.Plan
   discordId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -289,7 +289,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   externalId?: Prisma.SortOrderInput | Prisma.SortOrder
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   email?: Prisma.SortOrder
   apiKey?: Prisma.SortOrder
@@ -309,7 +309,7 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   externalId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  qutaoLimit?: Prisma.IntWithAggregatesFilter<"User"> | number
+  quotaLimit?: Prisma.IntWithAggregatesFilter<"User"> | number
   plan?: Prisma.EnumPlanWithAggregatesFilter<"User"> | $Enums.Plan
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   apiKey?: Prisma.StringWithAggregatesFilter<"User"> | string
@@ -321,7 +321,7 @@ export type UserScalarWhereWithAggregatesInput = {
 export type UserCreateInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -336,7 +336,7 @@ export type UserCreateInput = {
 export type UserUncheckedCreateInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -351,7 +351,7 @@ export type UserUncheckedCreateInput = {
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -366,7 +366,7 @@ export type UserUpdateInput = {
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -381,7 +381,7 @@ export type UserUncheckedUpdateInput = {
 export type UserCreateManyInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -393,7 +393,7 @@ export type UserCreateManyInput = {
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -405,7 +405,7 @@ export type UserUpdateManyMutationInput = {
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -417,7 +417,7 @@ export type UserUncheckedUpdateManyInput = {
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   email?: Prisma.SortOrder
   apiKey?: Prisma.SortOrder
@@ -427,13 +427,13 @@ export type UserCountOrderByAggregateInput = {
 }
 
 export type UserAvgOrderByAggregateInput = {
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   email?: Prisma.SortOrder
   apiKey?: Prisma.SortOrder
@@ -445,7 +445,7 @@ export type UserMaxOrderByAggregateInput = {
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   externalId?: Prisma.SortOrder
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
   plan?: Prisma.SortOrder
   email?: Prisma.SortOrder
   apiKey?: Prisma.SortOrder
@@ -455,7 +455,7 @@ export type UserMinOrderByAggregateInput = {
 }
 
 export type UserSumOrderByAggregateInput = {
-  qutaoLimit?: Prisma.SortOrder
+  quotaLimit?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -532,7 +532,7 @@ export type UserUpdateOneRequiredWithoutQuotasNestedInput = {
 export type UserCreateWithoutEventCategoruysInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -546,7 +546,7 @@ export type UserCreateWithoutEventCategoruysInput = {
 export type UserUncheckedCreateWithoutEventCategoruysInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -576,7 +576,7 @@ export type UserUpdateToOneWithWhereWithoutEventCategoruysInput = {
 export type UserUpdateWithoutEventCategoruysInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -590,7 +590,7 @@ export type UserUpdateWithoutEventCategoruysInput = {
 export type UserUncheckedUpdateWithoutEventCategoruysInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -604,7 +604,7 @@ export type UserUncheckedUpdateWithoutEventCategoruysInput = {
 export type UserCreateWithoutEventsInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -618,7 +618,7 @@ export type UserCreateWithoutEventsInput = {
 export type UserUncheckedCreateWithoutEventsInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -648,7 +648,7 @@ export type UserUpdateToOneWithWhereWithoutEventsInput = {
 export type UserUpdateWithoutEventsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -662,7 +662,7 @@ export type UserUpdateWithoutEventsInput = {
 export type UserUncheckedUpdateWithoutEventsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -676,7 +676,7 @@ export type UserUncheckedUpdateWithoutEventsInput = {
 export type UserCreateWithoutQuotasInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -690,7 +690,7 @@ export type UserCreateWithoutQuotasInput = {
 export type UserUncheckedCreateWithoutQuotasInput = {
   id?: string
   externalId?: string | null
-  qutaoLimit: number
+  quotaLimit: number
   plan?: $Enums.Plan
   email: string
   apiKey?: string
@@ -720,7 +720,7 @@ export type UserUpdateToOneWithWhereWithoutQuotasInput = {
 export type UserUpdateWithoutQuotasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -734,7 +734,7 @@ export type UserUpdateWithoutQuotasInput = {
 export type UserUncheckedUpdateWithoutQuotasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  qutaoLimit?: Prisma.IntFieldUpdateOperationsInput | number
+  quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
   plan?: Prisma.EnumPlanFieldUpdateOperationsInput | $Enums.Plan
   email?: Prisma.StringFieldUpdateOperationsInput | string
   apiKey?: Prisma.StringFieldUpdateOperationsInput | string
@@ -797,7 +797,7 @@ export type UserCountOutputTypeCountQuotasArgs<ExtArgs extends runtime.Types.Ext
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   externalId?: boolean
-  qutaoLimit?: boolean
+  quotaLimit?: boolean
   plan?: boolean
   email?: boolean
   apiKey?: boolean
@@ -813,7 +813,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   externalId?: boolean
-  qutaoLimit?: boolean
+  quotaLimit?: boolean
   plan?: boolean
   email?: boolean
   apiKey?: boolean
@@ -825,7 +825,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   externalId?: boolean
-  qutaoLimit?: boolean
+  quotaLimit?: boolean
   plan?: boolean
   email?: boolean
   apiKey?: boolean
@@ -837,7 +837,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type UserSelectScalar = {
   id?: boolean
   externalId?: boolean
-  qutaoLimit?: boolean
+  quotaLimit?: boolean
   plan?: boolean
   email?: boolean
   apiKey?: boolean
@@ -846,7 +846,7 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "externalId" | "qutaoLimit" | "plan" | "email" | "apiKey" | "discordId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "externalId" | "quotaLimit" | "plan" | "email" | "apiKey" | "discordId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   eventCategoruys?: boolean | Prisma.User$eventCategoruysArgs<ExtArgs>
   events?: boolean | Prisma.User$eventsArgs<ExtArgs>
@@ -866,7 +866,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     externalId: string | null
-    qutaoLimit: number
+    quotaLimit: number
     plan: $Enums.Plan
     email: string
     apiKey: string
@@ -1301,7 +1301,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
   readonly externalId: Prisma.FieldRef<"User", 'String'>
-  readonly qutaoLimit: Prisma.FieldRef<"User", 'Int'>
+  readonly quotaLimit: Prisma.FieldRef<"User", 'Int'>
   readonly plan: Prisma.FieldRef<"User", 'Plan'>
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly apiKey: Prisma.FieldRef<"User", 'String'>

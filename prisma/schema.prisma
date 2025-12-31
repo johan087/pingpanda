@@ -11,7 +11,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 enum Plan {
@@ -23,7 +22,7 @@ model User {
   id         String  @id @default(cuid())
   externalId String? @unique
 
-  qutaoLimit Int
+  quotaLimit Int
   plan       Plan @default(FREE)
 
   email           String          @unique
