@@ -4,7 +4,7 @@ import { LoadingSpinner } from "@/components/loading-spinner";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { client } from "@/lib/client";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { format, formatDistanceToNow } from "date-fns";
 import { ArrowRight, BarChart2, Clock, Database, Trash2 } from "lucide-react";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export const DashboardPageContent = () => {
   const [deletingCategory, setDeletingCategory] = useState<string | null>(null);
+  const queryClient = useQueryClient();
 
   const { data: categories, isPending: isEventCategoriesLoading } = useQuery({
     queryKey: ["user-event-categories"],
@@ -21,6 +22,19 @@ export const DashboardPageContent = () => {
       return categories;
     },
   });
+
+  const { mutate: deleteCategory, isPending: isDeletingCategory } = useMutation(
+    {
+      mutationFn: async (name: string) => {
+        await client.category.deleteCategory.$post({ name });
+      },
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["user-event-categories"] });
+        setDeletingCategory(null);
+      },
+    }
+  );
+
   if (isEventCategoriesLoading) {
     return (
       <div className="flex items-center justify-center flex-1 h-full w-full">
@@ -126,7 +140,15 @@ export const DashboardPageContent = () => {
             <Button variant="outline" onClick={() => setDeletingCategory(null)}>
               Cancel
             </Button>
-            <Button>Delete</Button>
+            <Button
+              variant="destructive"
+              onClick={() =>
+                deletingCategory && deleteCategory(deletingCategory)
+              }
+              disabled={isDeletingCategory}
+            >
+              Delete
+            </Button>
           </div>
         </div>
       </Modal>
