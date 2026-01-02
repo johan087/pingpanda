@@ -1,11 +1,17 @@
 "use client";
 
 import { LoadingSpinner } from "@/components/loading-spinner";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { client } from "@/lib/client";
 import { useQuery } from "@tanstack/react-query";
-import { format } from "date-fns";
+import { format, formatDistanceToNow } from "date-fns";
+import { ArrowRight, BarChart2, Clock, Database, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export const DashboardPageContent = () => {
+  const [deletingCategory, setDeletingCategory] = useState<string | null>(null);
+
   const { data: categories, isPending: isEventCategoriesLoading } = useQuery({
     queryKey: ["user-event-categories"],
     queryFn: async () => {
@@ -32,27 +38,68 @@ export const DashboardPageContent = () => {
           className="relative group z-10 transition-all duration-200 hover:-translate-y-0.5"
         >
           <div className="absolute z-0 inst-px rounded-lg bg-white" />
-          <div className="pointer-events-none z-0 absolute inset-px rounded-lg shadow-sm transition-all duration-300 group-hover:shadow-md ring-1 ring-black/5">
-            <div className="relative p-6 z-10">
-              <div className="flex items-center gap-4 mb-4">
-                <div
-                  className="size-12 rounded-full"
-                  style={{
-                    backgroundColor: category.color
-                      ? `#${category.color.toString(16).padStart(6, "0")}`
-                      : "#f3f4f6",
-                  }}
-                />
-                <div>
-                  <h3 className="text-lgg/7 font-medium tracking-light text-gray-950">
-                    {category.emoji || "📁"}
-                    {category.name}
-                  </h3>
-                  <p className="text-sm/6 text-gray-600">
-                    {format(category.createdAt, "MMM d, yyyy")}{" "}
-                  </p>
-                </div>
+          <div className="pointer-events-none z-0 absolute inset-px rounded-lg shadow-sm transition-all duration-300 group-hover:shadow-md ring-1 ring-black/5" />
+          <div className="relative p-6 z-10">
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                className="size-12 rounded-full"
+                style={{
+                  backgroundColor: category.color
+                    ? `#${category.color.toString(16).padStart(6, "0")}`
+                    : "#f3f4f6",
+                }}
+              />
+              <div>
+                <h3 className="text-lgg/7 font-medium tracking-light text-gray-950">
+                  {category.emoji || "📁"}
+                  {category.name}
+                </h3>
+                <p className="text-sm/6 text-gray-600">
+                  {format(category.createdAt, "MMM d, yyyy")}{" "}
+                </p>
               </div>
+            </div>
+            <div className="sapce-y-3 mb-6">
+              <div className="flex items-center text-sm/5 text-gray-600">
+                <Clock className="size-4 mr-2 text-blue-300" />
+                <span className="font-medium">Last ping!</span>
+                <span className="ml-1">
+                  {category.lastPing
+                    ? formatDistanceToNow(category.lastPing) + "ago"
+                    : "Never"}
+                </span>
+              </div>
+              <div className="flex items-center text-sm/5 text-gray-600">
+                <Database className="size-4 mr-2 text-blue-300" />
+                <span className="font-medium">Unique fields:</span>
+                <span className="ml-1">{category.uniqueFieldCount || 0}</span>
+              </div>
+              <div className="flex items-center text-sm/5 text-gray-600">
+                <BarChart2 className="size-4 mr-2 text-blue-300" />
+                <span className="font-medium">Events this month:</span>
+                <span className="ml-1">{category.eventsCount || 0}</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between mt-4">
+              <Link
+                href={`/dasboard/category/${category.name}`}
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "sm",
+                  className: "flex items-center gap-2 text-sm",
+                })}
+              >
+                View all <ArrowRight className="size-4" />{" "}
+              </Link>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-gray-500 hover:text-red-600 transition-colors"
+                aria-label="Delete"
+                onClick={() => setDeletingCategory(category.name)}
+              >
+                <Trash2 className="size-5" />
+              </Button>
             </div>
           </div>
         </li>
