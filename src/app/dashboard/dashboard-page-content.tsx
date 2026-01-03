@@ -147,7 +147,7 @@ export const DashboardPageContent = () => {
               }
               disabled={isDeletingCategory}
             >
-              Delete
+              {isDeletingCategory ? "Deleting..." : "Delete"}
             </Button>
           </div>
         </div>
