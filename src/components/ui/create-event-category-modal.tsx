@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod";
 import { CATEGORY_NAME_VALIDATOR } from "@/lib/validators/category-validator";
+import { Modal } from "./modal";
 
 const EVENT_CATEGORY_VALIDATOR = z.object({
   name: CATEGORY_NAME_VALIDATOR,
@@ -47,7 +48,33 @@ export const CreateEventCategoryModal = ({ children }: PropsWithChildren) => {
   const [isOpen, setIsOpen] = useState(false);
   const queryClient = useQueryClient();
 
-  const {} = useForm({
-    resolver: zodResolver(),
+  const { register, handleSubmit } = useForm({
+    resolver: zodResolver(EVENT_CATEGORY_VALIDATOR),
   });
+
+  const onSubmit = (data: EventCategoryForm) => {};
+  return (
+    <>
+      <div onClick={() => setIsOpen(true)}>{children}</div>
+      <Modal
+        showModal={isOpen}
+        setShowModal={setIsOpen}
+        className="max-w-xl p-8"
+      >
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div>
+            <h2 className="tex-lg/7 font-medium tracking-tigjht text-grayy-950">
+              New Event Category
+            </h2>
+            <p className="text-sm/6 text-gray-600">
+              Create a new category to organize your evenst.
+            </p>
+          </div>
+          <div className="space-y-5">
+            <div></div>
+          </div>
+        </form>
+      </Modal>
+    </>
+  );
 };
