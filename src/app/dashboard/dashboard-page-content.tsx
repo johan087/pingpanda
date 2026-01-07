@@ -104,7 +104,7 @@ export const DashboardPageContent = () => {
               </div>
               <div className="flex items-center justify-between mt-4">
                 <Link
-                  href={`/dasboard/category/${category.name}`}
+                  href={`/dashboard/category/${category.name}`}
                   className={buttonVariants({
                     variant: "outline",
                     size: "sm",
