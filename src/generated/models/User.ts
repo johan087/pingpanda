@@ -248,7 +248,7 @@ export type UserWhereInput = {
   discordId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  eventCategoruys?: Prisma.EventCategoryListRelationFilter
+  EventCategories?: Prisma.EventCategoryListRelationFilter
   events?: Prisma.EventListRelationFilter
   quotas?: Prisma.QuotaListRelationFilter
 }
@@ -263,7 +263,7 @@ export type UserOrderByWithRelationInput = {
   discordId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  eventCategoruys?: Prisma.EventCategoryOrderByRelationAggregateInput
+  EventCategories?: Prisma.EventCategoryOrderByRelationAggregateInput
   events?: Prisma.EventOrderByRelationAggregateInput
   quotas?: Prisma.QuotaOrderByRelationAggregateInput
 }
@@ -281,7 +281,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   discordId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
-  eventCategoruys?: Prisma.EventCategoryListRelationFilter
+  EventCategories?: Prisma.EventCategoryListRelationFilter
   events?: Prisma.EventListRelationFilter
   quotas?: Prisma.QuotaListRelationFilter
 }, "id" | "externalId" | "email" | "apiKey">
@@ -328,7 +328,7 @@ export type UserCreateInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
   events?: Prisma.EventCreateNestedManyWithoutUserInput
   quotas?: Prisma.QuotaCreateNestedManyWithoutUserInput
 }
@@ -343,7 +343,7 @@ export type UserUncheckedCreateInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutUserInput
   quotas?: Prisma.QuotaUncheckedCreateNestedManyWithoutUserInput
 }
@@ -358,7 +358,7 @@ export type UserUpdateInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
   events?: Prisma.EventUpdateManyWithoutUserNestedInput
   quotas?: Prisma.QuotaUpdateManyWithoutUserNestedInput
 }
@@ -373,7 +373,7 @@ export type UserUncheckedUpdateInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutUserNestedInput
   quotas?: Prisma.QuotaUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -487,18 +487,18 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type UserCreateNestedOneWithoutEventCategoruysInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCategoruysInput, Prisma.UserUncheckedCreateWithoutEventCategoruysInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCategoruysInput
+export type UserCreateNestedOneWithoutEventCategoriesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCategoriesInput, Prisma.UserUncheckedCreateWithoutEventCategoriesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCategoriesInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneRequiredWithoutEventCategoruysNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCategoruysInput, Prisma.UserUncheckedCreateWithoutEventCategoruysInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCategoruysInput
-  upsert?: Prisma.UserUpsertWithoutEventCategoruysInput
+export type UserUpdateOneRequiredWithoutEventCategoriesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutEventCategoriesInput, Prisma.UserUncheckedCreateWithoutEventCategoriesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEventCategoriesInput
+  upsert?: Prisma.UserUpsertWithoutEventCategoriesInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEventCategoruysInput, Prisma.UserUpdateWithoutEventCategoruysInput>, Prisma.UserUncheckedUpdateWithoutEventCategoruysInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutEventCategoriesInput, Prisma.UserUpdateWithoutEventCategoriesInput>, Prisma.UserUncheckedUpdateWithoutEventCategoriesInput>
 }
 
 export type UserCreateNestedOneWithoutEventsInput = {
@@ -529,7 +529,7 @@ export type UserUpdateOneRequiredWithoutQuotasNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutQuotasInput, Prisma.UserUpdateWithoutQuotasInput>, Prisma.UserUncheckedUpdateWithoutQuotasInput>
 }
 
-export type UserCreateWithoutEventCategoruysInput = {
+export type UserCreateWithoutEventCategoriesInput = {
   id?: string
   externalId?: string | null
   quotaLimit: number
@@ -543,7 +543,7 @@ export type UserCreateWithoutEventCategoruysInput = {
   quotas?: Prisma.QuotaCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutEventCategoruysInput = {
+export type UserUncheckedCreateWithoutEventCategoriesInput = {
   id?: string
   externalId?: string | null
   quotaLimit: number
@@ -557,23 +557,23 @@ export type UserUncheckedCreateWithoutEventCategoruysInput = {
   quotas?: Prisma.QuotaUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutEventCategoruysInput = {
+export type UserCreateOrConnectWithoutEventCategoriesInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutEventCategoruysInput, Prisma.UserUncheckedCreateWithoutEventCategoruysInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEventCategoriesInput, Prisma.UserUncheckedCreateWithoutEventCategoriesInput>
 }
 
-export type UserUpsertWithoutEventCategoruysInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutEventCategoruysInput, Prisma.UserUncheckedUpdateWithoutEventCategoruysInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutEventCategoruysInput, Prisma.UserUncheckedCreateWithoutEventCategoruysInput>
+export type UserUpsertWithoutEventCategoriesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutEventCategoriesInput, Prisma.UserUncheckedUpdateWithoutEventCategoriesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutEventCategoriesInput, Prisma.UserUncheckedCreateWithoutEventCategoriesInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutEventCategoruysInput = {
+export type UserUpdateToOneWithWhereWithoutEventCategoriesInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutEventCategoruysInput, Prisma.UserUncheckedUpdateWithoutEventCategoruysInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutEventCategoriesInput, Prisma.UserUncheckedUpdateWithoutEventCategoriesInput>
 }
 
-export type UserUpdateWithoutEventCategoruysInput = {
+export type UserUpdateWithoutEventCategoriesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
@@ -587,7 +587,7 @@ export type UserUpdateWithoutEventCategoruysInput = {
   quotas?: Prisma.QuotaUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutEventCategoruysInput = {
+export type UserUncheckedUpdateWithoutEventCategoriesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   externalId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   quotaLimit?: Prisma.IntFieldUpdateOperationsInput | number
@@ -611,7 +611,7 @@ export type UserCreateWithoutEventsInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
   quotas?: Prisma.QuotaCreateNestedManyWithoutUserInput
 }
 
@@ -625,7 +625,7 @@ export type UserUncheckedCreateWithoutEventsInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
   quotas?: Prisma.QuotaUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -655,7 +655,7 @@ export type UserUpdateWithoutEventsInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
   quotas?: Prisma.QuotaUpdateManyWithoutUserNestedInput
 }
 
@@ -669,7 +669,7 @@ export type UserUncheckedUpdateWithoutEventsInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
   quotas?: Prisma.QuotaUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -683,7 +683,7 @@ export type UserCreateWithoutQuotasInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryCreateNestedManyWithoutUserInput
   events?: Prisma.EventCreateNestedManyWithoutUserInput
 }
 
@@ -697,7 +697,7 @@ export type UserUncheckedCreateWithoutQuotasInput = {
   discordId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
+  EventCategories?: Prisma.EventCategoryUncheckedCreateNestedManyWithoutUserInput
   events?: Prisma.EventUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -727,7 +727,7 @@ export type UserUpdateWithoutQuotasInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUpdateManyWithoutUserNestedInput
   events?: Prisma.EventUpdateManyWithoutUserNestedInput
 }
 
@@ -741,7 +741,7 @@ export type UserUncheckedUpdateWithoutQuotasInput = {
   discordId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  eventCategoruys?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
+  EventCategories?: Prisma.EventCategoryUncheckedUpdateManyWithoutUserNestedInput
   events?: Prisma.EventUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -751,13 +751,13 @@ export type UserUncheckedUpdateWithoutQuotasInput = {
  */
 
 export type UserCountOutputType = {
-  eventCategoruys: number
+  EventCategories: number
   events: number
   quotas: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  eventCategoruys?: boolean | UserCountOutputTypeCountEventCategoruysArgs
+  EventCategories?: boolean | UserCountOutputTypeCountEventCategoriesArgs
   events?: boolean | UserCountOutputTypeCountEventsArgs
   quotas?: boolean | UserCountOutputTypeCountQuotasArgs
 }
@@ -775,7 +775,7 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountEventCategoruysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCountOutputTypeCountEventCategoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.EventCategoryWhereInput
 }
 
@@ -804,7 +804,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   discordId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  eventCategoruys?: boolean | Prisma.User$eventCategoruysArgs<ExtArgs>
+  EventCategories?: boolean | Prisma.User$EventCategoriesArgs<ExtArgs>
   events?: boolean | Prisma.User$eventsArgs<ExtArgs>
   quotas?: boolean | Prisma.User$quotasArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -848,7 +848,7 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "externalId" | "quotaLimit" | "plan" | "email" | "apiKey" | "discordId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  eventCategoruys?: boolean | Prisma.User$eventCategoruysArgs<ExtArgs>
+  EventCategories?: boolean | Prisma.User$EventCategoriesArgs<ExtArgs>
   events?: boolean | Prisma.User$eventsArgs<ExtArgs>
   quotas?: boolean | Prisma.User$quotasArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -859,7 +859,7 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    eventCategoruys: Prisma.$EventCategoryPayload<ExtArgs>[]
+    EventCategories: Prisma.$EventCategoryPayload<ExtArgs>[]
     events: Prisma.$EventPayload<ExtArgs>[]
     quotas: Prisma.$QuotaPayload<ExtArgs>[]
   }
@@ -1267,7 +1267,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  eventCategoruys<T extends Prisma.User$eventCategoruysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$eventCategoruysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  EventCategories<T extends Prisma.User$EventCategoriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$EventCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   events<T extends Prisma.User$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   quotas<T extends Prisma.User$quotasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$quotasArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuotaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1696,9 +1696,9 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
- * User.eventCategoruys
+ * User.EventCategories
  */
-export type User$eventCategoruysArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$EventCategoriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the EventCategory
    */

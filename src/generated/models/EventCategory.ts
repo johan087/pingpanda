@@ -299,7 +299,7 @@ export type EventCategoryCreateInput = {
   emoji?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutEventCategoruysInput
+  user: Prisma.UserCreateNestedOneWithoutEventCategoriesInput
   events?: Prisma.EventCreateNestedManyWithoutEventCategoryInput
 }
 
@@ -321,7 +321,7 @@ export type EventCategoryUpdateInput = {
   emoji?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutEventCategoruysNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutEventCategoriesNestedInput
   events?: Prisma.EventUpdateManyWithoutEventCategoryNestedInput
 }
 
@@ -547,7 +547,7 @@ export type EventCategoryCreateWithoutEventsInput = {
   emoji?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutEventCategoruysInput
+  user: Prisma.UserCreateNestedOneWithoutEventCategoriesInput
 }
 
 export type EventCategoryUncheckedCreateWithoutEventsInput = {
@@ -583,7 +583,7 @@ export type EventCategoryUpdateWithoutEventsInput = {
   emoji?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutEventCategoruysNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutEventCategoriesNestedInput
 }
 
 export type EventCategoryUncheckedUpdateWithoutEventsInput = {
