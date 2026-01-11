@@ -1,5 +1,6 @@
 import { FREE_QUOTA, PRO_QUOTA } from "@/config";
 import { db } from "@/db";
+import { DiscordClient } from "@/lib/discord-client";
 import { CATEGORY_NAME_VALIDATOR } from "@/lib/validators/category-validator";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -89,7 +90,9 @@ export const POST = async (req: NextRequest) => {
         message:
           "Monthly quota reached. Please upgrade your plan for more events",
       },
-      { status: 403 }
+      { status: 429 }
     );
   }
+
+  const discord = new DiscordClient(process.env.DISCORD_BOT_TOKEN);
 };
