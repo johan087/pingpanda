@@ -88,4 +88,6 @@ model Quota {
   year      Int
   month     Int
   count     Int      @default(0)
+
+  @@unique([userId, year, month])
 }

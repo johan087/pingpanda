@@ -256,6 +256,7 @@ export type QuotaOrderByWithRelationInput = {
 
 export type QuotaWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  userId_year_month?: Prisma.QuotaUserIdYearMonthCompoundUniqueInput
   AND?: Prisma.QuotaWhereInput | Prisma.QuotaWhereInput[]
   OR?: Prisma.QuotaWhereInput[]
   NOT?: Prisma.QuotaWhereInput | Prisma.QuotaWhereInput[]
@@ -266,7 +267,7 @@ export type QuotaWhereUniqueInput = Prisma.AtLeast<{
   month?: Prisma.IntFilter<"Quota"> | number
   count?: Prisma.IntFilter<"Quota"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id">
+}, "id" | "userId_year_month">
 
 export type QuotaOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -373,6 +374,12 @@ export type QuotaListRelationFilter = {
 
 export type QuotaOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type QuotaUserIdYearMonthCompoundUniqueInput = {
+  userId: string
+  year: number
+  month: number
 }
 
 export type QuotaCountOrderByAggregateInput = {

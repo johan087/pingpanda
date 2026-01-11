@@ -1,3 +1,4 @@
+import { FREE_QUOTA, PRO_QUOTA } from "@/config";
 import { db } from "@/db";
 import { CATEGORY_NAME_VALIDATOR } from "@/lib/validators/category-validator";
 import { NextRequest, NextResponse } from "next/server";
@@ -58,6 +59,35 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json(
       {
         message: "Please enter your discord ID in your account settings",
+      },
+      { status: 403 }
+    );
+  }
+
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentYear = currentDate.getFullYear();
+
+  const quota = await db.quota.findUnique({
+    where: {
+      userId_year_month: {
+        userId: user!.id,
+        month: currentMonth,
+        year: currentYear,
+      },
+    },
+  });
+
+  const quotaLimit =
+    user!.plan === "FREE"
+      ? FREE_QUOTA.maxEventsPerMonth
+      : PRO_QUOTA.maxEventsPerMonth;
+
+  if (quota && quota!.count >= quotaLimit) {
+    return NextResponse.json(
+      {
+        message:
+          "Monthly quota reached. Please upgrade your plan for more events",
       },
       { status: 403 }
     );
