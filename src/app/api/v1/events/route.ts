@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  if (!authHeader.startsWith("|Bearer ")) {
+  if (!authHeader.startsWith("Bearer ")) {
     return NextResponse.json(
       { message: "Invalid auth header format. Expected: 'Bearer [API_KEY]" },
       { status: 401 }
@@ -95,4 +95,10 @@ export const POST = async (req: NextRequest) => {
   }
 
   const discord = new DiscordClient(process.env.DISCORD_BOT_TOKEN);
+
+  const dmChannel = await discord.createDM(user.discordId);
+
+  await discord.sendEmbed(dmChannel.id, {
+    title: "Hello world!!!",
+  });
 };
