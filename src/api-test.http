@@ -2,4 +2,10 @@
 POST http://localhost:3000/api/v1/events
 Authorization: Bearer cmjtp2l6o0001h86dpdxq8u72
 
-
+{
+    "category" : "sale",
+    "fields": {
+        "amount": 20,
+        "email": "johan@email.com"
+    }
+}

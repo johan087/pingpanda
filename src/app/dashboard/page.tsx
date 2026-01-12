@@ -3,12 +3,11 @@ import { db } from "@/db";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { DashboardPageContent } from "./dashboard-page-content";
-//import { CreateEventCategoryModal } from "@/components/create-event-category-modal";
+import { CreateEventCategoryModal } from "@/components/create-event-category-modal";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { createCheckoutSession } from "@/lib/stripe";
-import { CreateEventCategoryModal } from "@/components/ui/create-event-category-modal";
-//import { PaymentSuccessModal } from "@/components/payment-success-modal";
+import { PaymentSuccessModal } from "@/components/payment-success-modal";
 
 interface PageProps {
   searchParams: {
@@ -42,11 +41,11 @@ const Page = async ({ searchParams }: PageProps) => {
     if (session.url) redirect(session.url);
   }
 
-  //const success = searchParams.success;
+  const success = searchParams.success;
 
   return (
     <>
-      {/*} {success ? <PaymentSuccessModal /> : null} */}
+      {success ? <PaymentSuccessModal /> : null}
 
       <DashboardPage
         cta={

@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { EmptyCategoryState } from "./empty-category-state";
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { client } from "@/lib/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -33,7 +33,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { EventCategory, Event } from "@/generated/client";
+import { Event, EventCategory } from "@/generated/client";
 
 interface CategoryPageContentProps {
   hasEvents: boolean;
@@ -61,6 +61,13 @@ export const CategoryPageContent = ({
 
   const { data: pollingData } = useQuery({
     queryKey: ["category", category.name, "hasEvents"],
+    queryFn: async () => {
+      const res = await client.category.pollCategory.$get({
+        name: category.name,
+      });
+
+      return await res.json();
+    },
     initialData: { hasEvents: initialHasEvents },
   });
 
@@ -113,21 +120,13 @@ export const CategoryPageContent = ({
         },
       },
       ...(data?.events[0]
-        ? Object.keys(data.events[0].fields as Record<string, unknown>).map(
-            (field) =>
-              ({
-                accessorFn: (row: Event) =>
-                  (row as unknown as { fields: Record<string, unknown> })
-                    .fields[field],
-                header: field,
-                cell: ({ row }: { row: Row<Event> }) =>
-                  (
-                    row.original as unknown as {
-                      fields: Record<string, unknown>;
-                    }
-                  ).fields[field] || "-",
-              } as ColumnDef<Event, unknown>)
-          )
+        ? Object.keys(data.events[0].fields as object).map((field) => ({
+            accessorFn: (row: Event) =>
+              (row.fields as Record<string, unknown>)[field],
+            header: field,
+            cell: ({ row }: { row: Row<Event> }) =>
+              (row.original.fields as Record<string, unknown>)[field] || "-",
+          }))
         : []),
       {
         accessorKey: "deliveryStatus",
@@ -154,23 +153,17 @@ export const CategoryPageContent = ({
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  // Keep stable references to the row-model factory functions so they
-  // aren't recreated every render — prevents React Compiler warning.
-  const coreRowModelRef = useRef(getCoreRowModel());
-  const sortedRowModelRef = useRef(getSortedRowModel());
-  const filteredRowModelRef = useRef(getFilteredRowModel());
-  const paginationRowModelRef = useRef(getPaginationRowModel());
 
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: data?.events || [],
     columns,
-    getCoreRowModel: coreRowModelRef.current,
+    getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
-    getSortedRowModel: sortedRowModelRef.current,
+    getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: filteredRowModelRef.current,
-    getPaginationRowModel: paginationRowModelRef.current,
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
     manualPagination: true,
     pageCount: Math.ceil((data?.eventsCount || 0) / pagination.pageSize),
     onPaginationChange: setPagination,
@@ -336,7 +329,7 @@ export const CategoryPageContent = ({
           </div>
         </div>
 
-        <Card contentClassName="px-6 py-4">
+        <Card>
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (

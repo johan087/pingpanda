@@ -28,9 +28,7 @@ export const Modal = ({
       return;
     }
 
-    if (onClose) {
-      onClose();
-    }
+    onClose?.();
 
     if (setShowModal) {
       setShowModal(false);

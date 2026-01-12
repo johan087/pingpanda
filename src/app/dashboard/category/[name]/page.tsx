@@ -11,9 +11,8 @@ interface PageProps {
 }
 
 const Page = async ({ params }: PageProps) => {
-  const name = (await params).name;
-
-  if (typeof name !== "string") return notFound();
+  const paramsname = (await params).name;
+  if (typeof paramsname !== "string") return notFound();
 
   const auth = await currentUser();
 
@@ -30,7 +29,7 @@ const Page = async ({ params }: PageProps) => {
   const category = await db.eventCategory.findUnique({
     where: {
       name_userId: {
-        name: name,
+        name: paramsname,
         userId: user.id,
       },
     },

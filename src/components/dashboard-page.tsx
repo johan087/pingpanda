@@ -24,19 +24,18 @@ export const DashboardPage = ({
       <div className="w-full p-6 sm:p-8 flex justify-between border-b border-gray-200">
         <div className="w-full flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-8">
-              {hideBackButton ? null : (
-                <Button
-                  onClick={() => router.push("/dashboard")}
-                  className="w-fit bg-white"
-                  variant="outline"
-                >
-                  <ArrowLeft className="size-4" />
-                </Button>
-              )}
+            {hideBackButton ? null : (
+              <Button
+                onClick={() => router.push("/dashboard")}
+                className="w-fit bg-white"
+                variant="outline"
+                type="button"
+              >
+                <ArrowLeft className="size-4" />
+              </Button>
+            )}
 
-              <Heading>{title}</Heading>
-            </div>
+            <Heading>{title}</Heading>
           </div>
 
           {cta ? <div className="w-full">{cta}</div> : null}
