@@ -36,7 +36,7 @@ export const NavBar = async () => {
             ) : (
               <>
                 <Link
-                  href="/dasboard"
+                  href="/pricing"
                   className={buttonVariants({
                     size: "sm",
                     variant: "ghost",
