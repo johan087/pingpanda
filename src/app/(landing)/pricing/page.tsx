@@ -40,7 +40,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-brand-25 py-24 sm:py-32">
+    <div className="bg-white py-24 sm:py-32">
       <MaxWidthWrapper>
         <div className="mx-auto max-w-2xl sm:text-center">
           <Heading className="text-center">Simple no-tricks pricing</Heading>
@@ -62,7 +62,7 @@ const Page = () => {
               a beat in your business growth.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
-              <h4 className="flex-none text-sm font-semibold leading-6 text-brand-600">
+              <h4 className="flex-none text-sm font-semibold leading-6 text-blue-600">
                 What&apos;s included
               </h4>
               <div className="h-px flex-auto bg-gray-100" />
@@ -71,7 +71,7 @@ const Page = () => {
             <ul className="mt-8 grid grid-cols-1 gap-4 text-sm/6 text-gray-600 sm:grid-cols-2 sm:gap-6">
               {INCLUDED_FEATURES.map((feature) => (
                 <li key={feature} className="flex gap-3">
-                  <CheckIcon className="h-6 w-5 flex-none text-brand-700" />
+                  <CheckIcon className="h-6 w-5 flex-none text-blue-700" />
                   {feature}
                 </li>
               ))}
